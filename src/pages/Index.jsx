@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Box, Text, Button, VStack, Heading } from "@chakra-ui/react";
+import { Box, Text, Button, VStack, Heading, Image } from "@chakra-ui/react";
 import { FaMicrophone } from "react-icons/fa";
 
 const Index = () => {
@@ -94,6 +94,7 @@ const Index = () => {
           </Button>
         )}
       </Box>
+      <Image src="https://via.placeholder.com/640x480.png?text=Piano+Keyboard" alt="Piano Keyboard" />
     </VStack>
   );
 };
