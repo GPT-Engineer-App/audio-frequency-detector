@@ -52,6 +52,11 @@ const Index = () => {
     }
   };
 
+  const calculateEqualTemperamentFrequency = (freq) => {
+    const n = Math.round(12 * Math.log2(freq / 440));
+    return 440 * Math.pow(2, n / 12);
+  };
+
   const animate = () => {
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
@@ -67,7 +72,8 @@ const Index = () => {
     }
 
     const freq = (maxIndex * audioContext.sampleRate) / analyser.fftSize;
-    setDominantFreq(freq);
+    const roundedFreq = calculateEqualTemperamentFrequency(freq);
+    setDominantFreq(roundedFreq);
 
     const newAnimationId = requestAnimationFrame(animate);
     setAnimationId(newAnimationId);
